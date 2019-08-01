@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <title><%= fontName %></title>
+    <link href="demo-files/demo.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1><%= className %> <%= fontName %> 图标</h1>
+        <h2>数量：<%= glyphs.length %></h2>
+        <h2>生成时间：<%= buildTimestampFormat %></h2>
+        <ul class="icon_lists clear"><% _.each(glyphs, function(glyph) { %>
+            <li>
+                <i class="icon <%= className %> <%= classPrefix %><%= glyph.name %>"></i>
+                <!-- <i class="icon iconfont">&#x<%= glyph.codepoint.toString(16).toUpperCase() %>;</i> -->
+                <div class="name"><%= glyph.name %></div>
+                <div class="code">&amp;#x<%= glyph.codepoint.toString(16).toUpperCase() %>;</div>
+                <div class="fontclass">.<%= classPrefix %><%= glyph.name %></div>
+            </li><% }); %>
+        </ul>
+    </div>
+</body>
+
+</html>
